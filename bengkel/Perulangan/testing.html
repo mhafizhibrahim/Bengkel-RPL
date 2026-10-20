@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>gtu</title>
+    </head>
+    <body>
+        <script>
+            let hasil = "";
+            let angka = 0;
+            let berapa = prompt('Berapa angka yang anda ingin jumlahkan');
+            for(let i = 1; i <=berapa; i++){
+                let angka1 = Number(prompt('Masukan angka ke' + i + "   "));
+                if (angka1 <0){
+                    alert("Angkanya adalah Negatif.")
+                } else {
+                    alert("Angkanya adalah Positif.")
+                }
+                hasil = hasil + angka1 + " ";
+                angka = angka + angka1;
+            }
+            document.write("<p>" + hasil + "</p>");
+            document.write("<p> Hasilnya adalah : " + angka + "</p>");
+            </script>
+    </body>
+</html>

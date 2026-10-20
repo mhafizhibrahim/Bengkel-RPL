@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Nilai Siswa
+        </title>
+    </head>
+    <body>
+        <script>
+            let jumlah = prompt("Masukan Jumlah Siswa")
+            let grade = "";
+            let valid = "";
+            
+            for(let i = 1; i <= jumlah; i++){
+                let nilai1 = Number(prompt('Masukan Nilai Siswa ke ' + i ));
+                if (nilai1 >100){
+                    valid = alert("Nilai Tidak Valid")
+                } else if (nilai1 >= 90) {
+                    grade = "A"
+                } else if (nilai1 >= 80) {
+                    grade = "B"
+                } else if (nilai1 >= 70) {
+                    grade = "C"
+                } else if (nilai1 >= 60) {
+                    grade = "D"
+                } else {
+                    grade = "F"
+                }
+                document.write("Siswa ke " + i + " Nilainya = " + nilai1 + "|" + "Grade " + grade + "<br>");
+            }
+        
+            
+        </script>
+    </body>
+</html>

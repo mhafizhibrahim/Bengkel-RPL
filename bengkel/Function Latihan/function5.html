@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Tampilkan Genap</title>
+</head>
+<body>
+
+    <label> Input Bilangan </label>
+    <input type="number" id="angka">
+
+    <button type="button" onclick="hytung()"> Tampil </button>
+
+    <p id="hasil"></p>
+    <script>
+        function hytung() {
+            let angka1 = document.getElementById('angka').value;
+            let hasil = "";
+            for(i = 2; i <= angka1; i = i + 2){
+                hasil = hasil + i + "<br>";
+            }
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+    
+    </script>
+</body>
+</html>

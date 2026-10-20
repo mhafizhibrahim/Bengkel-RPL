@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perulangan menggunakan while</title>
+    </head>
+    <body>
+        <script>
+            let hasil = "";
+            let angka = 0;
+            let i = 1;
+            let berapa = prompt('Berapa angka yang anda ingin jumlahkan');
+                
+            do {
+                let angka1 = Number(prompt("Masukan angka ke " + i))
+
+                if (angka1 %2 == 0) {
+                    alert("Angkanya adalah Genap.")
+                } else {
+                    alert("Angkanya adalah Ganjil.")
+                }
+
+                hasil = hasil + angka1 + " ";
+                angka = angka + angka1;
+
+                i++;
+
+            } while(i <= berapa)
+            document.write(hasil + "<br>");
+            document.write("Hasilnya adalah " + angka + " ");
+        </script>
+    </body>
+</html>

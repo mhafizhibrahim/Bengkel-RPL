@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>percabangan</title>
+    <h3>Keterangan Kelulusan</h3>
+  </head>
+  <body>
+    <script>
+      var tulis = prompt("Masukan Nilai Tulis Anda :");
+
+      if (tulis >= 80) {
+        var wawancara = prompt("Masukan Nilai Wawancara Anda :");
+        if (wawancara >= 75) {
+          document.write("Selamat anda dinyatakan Lulus!");
+        } else {
+          document.write(
+            "Maaf anda dinyatakan tidak Lulus, Karena Nilai wawancara anda Kurang. Belajarlah Lagi ya!",
+          );
+        }
+      } else {
+        document.write(
+          "Maaf Anda dinyatakan Tidak Lulus, Karena Nilai Tulis anda Kurang. Belajarlah yang lebih Giat!",
+        );
+      }
+    </script>
+  </body>
+</html>

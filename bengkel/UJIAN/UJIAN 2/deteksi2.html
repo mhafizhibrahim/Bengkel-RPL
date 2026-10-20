@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deteksi Bilangan</title>
+    </head>
+    <body>
+        <script>
+            let bilangan = [80, 70, 95, 65, 100, 86];
+            let tinggi = bilangan[0];
+            
+            for(let i = 0; i < bilangan.length; i++){
+                document.write(bilangan[i] + " ")
+
+                if (bilangan[i] > tinggi){
+                    tinggi = bilangan[i]
+                } 
+                
+            }
+            document.write('<br>')
+            document.write('Bilangan Tertinggi ' + tinggi)
+        </script>
+    </body>
+</html>

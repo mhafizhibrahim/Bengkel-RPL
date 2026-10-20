@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Penjumlahan Berulang</title>
+    </head>
+    <body>
+        <script>
+            
+            let hasil = ""
+            let angka = 0;
+            for(let hitungan = 1; hitungan <=5; hitungan ++){
+                let angka1 = Number(prompt('Masukan angka ke ' + hitungan));
+                hasil = hasil + angka1;
+                angka = angka + angka1;
+            }
+            document.write("<p>" + hasil + "  " + "</p>");
+            document.write("<p>Hasilnya Adalah : " + angka + "</p>")
+            </script>
+    </body>
+</html>

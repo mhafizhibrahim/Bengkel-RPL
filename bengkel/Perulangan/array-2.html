@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Array Harga</title>
+</head>
+<body>
+    <script>
+        var buah = ["Pisang", "Semangka", "Apel"];
+        var harga = ["2000", "3000", "4000"];
+
+        document.write("<ol>")
+            
+            for(let i = 0; i < buah.length; i++){
+              let hasil =  document.write(`<li>${buah[i] + ", Harganya =  " + harga[i]}</li><br>`);
+            }
+            document.write("</ol>")
+            
+            </script>
+            <button type="button" onclick="
+            do {
+                let nama = prompt('Masukan Buah');
+                let rego = Number(prompt('Masukan Harga Buah'));
+                buah.push(nama);
+                harga.push(rego);
+                let tanya = confirm('Apakah anda mau meambah lagi?');
+            } while (tanya)
+                    let teks = '';
+                    for(let i = 0; i < buah.length; i++){
+                        teks += '<li>' + buah[i] + ', Harganya Adalah = ' + harga[i] + '</li>'
+                    }
+                    document.getElementById('output').innerHTML = teks;
+                
+                
+                ">
+            Tambahkan Buah
+        </button>
+        <ol id="output"></ol>
+</body> 
+</html>

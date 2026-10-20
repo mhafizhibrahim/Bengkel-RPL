@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Rata Rata Dan Grade</title>
+</head>
+<body>
+    <script>
+        function rata(a, b, c) {
+            return ((a + b + c) / 3);
+        }
+        
+        function grade(rata) {
+            if (rata(a, b, c) >= 100) {
+                return("A+");
+            } else if (rata(a, b, c) >= 85) {
+                return("A");
+            } else if (rata(a, b, c) >= 75) {
+                return("B");
+            } else if (rata(a, b, c) >= 65) {
+                return("C");
+            } else {
+                return("Remidi")
+            }
+    }
+
+        let a = Number(prompt("Masukan Nilai TUGAS"));
+        let b = Number(prompt("Masukan Nilai UTS"));
+        let c = Number(prompt("Masukan Nilai UAS"));
+
+        let hasil = rata(a, b, c);
+        let hasilgrade = grade(rata);
+        
+
+        document.write("Nilai Tugas : " + a + "<br>" + "Nilai UTS : " + b + "<br>" + "Nilai UAS : " + c + "<br>");
+        document.write("Rata Rata Nilai : " + hasil + "<br>" + " Grade Anda : " + hasilgrade)
+    </script>
+</body>
+</html>

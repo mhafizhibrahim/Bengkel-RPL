@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Sederhana Function Presentasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #740abf;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background:white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000000;
+        }
+        h2 { text-align: center; }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th { background: #ddd; }
+        .total {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+        }
+        .kembalian {
+            font-size: 20px;
+            font-weight: bold
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>APLIKASI KASIR</h2>
+        <h2>KOPERASI MERAH PUTIH</h2>
+
+        <h3>Input Barang</h3>
+
+        <input type="text" id="namaBarang" placeholder="Nama Barang">
+        <input type="number" id="hargaBarang" placeholder="Harga Barang">
+        <input type="number" id="jumlahBarang" placeholder="Jumlah Barang">
+
+        
+        <button onclick="tambahBarang()">Tambah Barang</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Subtotal</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="daftarBarang">
+            </tbody>
+        </table>
+
+        <div class="total">
+            <p>Subtotal : Rp <span id="subtotal">0</span></p>
+            <p>Diskon : Rp <span id="diskon">0</span></p>
+            <p><b>Total Bayar : Rp <span id="totalBayar">0</span></b></p>
+            <hr> 
+            <label>Uang Bayar :</label>
+            <input type="number" id="uangBayar" placeholder="Masukan Uang">
+            <button onclick="hitungKembalian()">Hitung Kembalian</button>
+            <p class="kembalian">Kembalian : Rp <span id="kembalian">0</span></p>
+        </div>
+
+        <button onclick="resetKasir()">Reset Transaksi</button>
+    </div>
+
+<script>
+    // array untuk data barang
+    let keranjang = [];
+
+    // 1. Fungsi menghitung Subtotal Barang
+    function hitungSubtotal(harga, jumlah) {
+        return harga * jumlah;
+    }
+
+    // 2. Fungsi menentukan Diskon
+    function hitungDiskon(total) {
+        if (total >= 500000) {
+            return total * 0.15;
+        } else if (total >= 250000) {
+            return total * 0.10;
+        } else if (total >= 100000) {
+            return total * 0.05;
+        } else {
+            return 0;
+        }
+    }
+
+    // 3. Fungsi menghitung total
+    function hitungTotal(subtotal, diskon) {
+        return subtotal - diskon;
+    }
+
+    // 4. Fungsi tambah barang
+    function tambahBarang() {
+        let nama = document.getElementById("namaBarang").value;
+        let harga = Number(document.getElementById("hargaBarang").value);
+        let jumlah = Number(document.getElementById("jumlahBarang").value);
+
+        /// Validasi input
+        if (nama === "" || harga <= 0 || jumlah <= 0) {
+            alert("Data barang tidak valid!");
+            return;
+        }
+
+        /// Hitung subtotal
+        let subtotal = hitungSubtotal(harga, jumlah);
+
+        /// Masukan ke array
+        keranjang.push({
+            nama: nama,
+            harga: harga,
+            jumlah: jumlah,
+            subtotal: subtotal
+        });
+
+        /// Tampilkan data
+        tampilkanBarang();  
+
+        /// Kosongkan input
+        document.getElementById("namaBarang").value = "";
+        document.getElementById("hargaBarang").value = "";
+        document.getElementById("jumlahBarang").value = "";
+    }
+
+    // 5. Fungsi Menampilkan Barang
+    function tampilkanBarang() {
+        let tabel = document.getElementById("daftarBarang");
+        tabel.innerHTML = "";
+
+        keranjang.forEach(function(barang, index) {
+            tabel.innerHTML += `
+            <tr>
+                <td> ${index + 1}</td>
+                <td> ${barang.nama}</td>
+                <td> Rp ${barang.harga.toLocaleString("id-ID")}</td>
+                <td> ${barang.jumlah}</td>
+                <td> Rp ${barang.subtotal.toLocaleString("id-ID")}</td>
+                <td>
+                    <button onclick="hapusBarang(${index})">Hapus</button>
+                </td>
+            </tr>
+            `;
+        })
+
+        hitungSemuaTotal();
+    }
+
+    // 6. Fungsi Menghapus Barang
+    function hapusBarang(index) {
+        keranjang.splice(index, 1);
+        tampilkanBarang();
+    }
+
+    // 7. FUNGSI MENGHITUNG SEMUA TOTAL
+    function hitungSemuaTotal() {
+        let subtotal = 0;
+
+        /// Perulangan Array
+        for (let i = 0; i < keranjang.length; i++) {
+            subtotal += keranjang[i].subtotal;
+        }
+
+        /// HITUNG DISKON
+        let diskon = hitungDiskon(subtotal);
+
+        /// HITUNG TOTAL
+        let total = hitungTotal(subtotal, diskon);
+
+        /// TAMPILKAN HASIL 
+        document.getElementById("subtotal").innerHTML = subtotal.toLocaleString("id-ID");
+        document.getElementById("diskon").innerHTML = diskon.toLocaleString("id-ID"); 
+        document.getElementById("totalBayar").innerHTML = total.toLocaleString("id-ID"); 
+    }
+
+    // 8. Fungsi Menghitung Kembalian
+    function hitungKembalian() {
+        let totalText = document.getElementById("totalBayar").innerHTML;
+        let total = Number(totalText.replace(/\./g, ""));
+        let uang = Number(document.getElementById("uangBayar").value);
+
+        if (uang <= 0) {
+            alert("Masukan uang pembayaran dengan valid!");
+            return;
+        }
+
+        if (uang < total) {
+            alert("Uang pembayaran kurang!")
+            return;
+        }
+
+        let kembalian = uang - total;
+        document.getElementByI
+        ("kembalian").innerHTML = kembalian.toLocaleString("id-ID");
+    }
+
+    // 9. Fungsi Reset Transaksi
+    function resetKasir() {
+        keranjang = [];
+        document.getElementById("namaBarang").value = "";
+        document.getElementById("hargaBarang").value = "";
+        document.getElementById("jumlahBarang").value = "";
+        document.getElementById("uangBayar").value = "";
+        document.getElementById("kembalian").innerText = "0";
+        tampilkanBarang();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROGRAM KASIR SIMPLE</title>
+    </head>
+
+    <h2>PROGRAM KASIR SIMPLE</h2>
+
+    <form>
+        <label>Nama Barang:</label>
+        <input type="text" id="nama">
+        <br><br>
+
+        <label>Harga Satuan:</label>
+        <input type="number" id="hrg">
+        <br><br>
+
+        <label>Jumlah Beli:</label>
+        <input type="number" id="jumlah">
+        <br><br>
+
+        <label>Diskon:</label>
+        <input type="number" id="diskon">
+        <br><br>
+
+        <label>Cash:</label>
+        <input type="number" id="cash">
+        <br><br>
+
+        <button type="button" onclick="
+        let name = document.getElementById('nama').value;
+        let a = Number(document.getElementById('hrg').value);
+        let b = Number(document.getElementById('jumlah').value);
+        let c = Number(document.getElementById('diskon').value);
+        let cash = Number(document.getElementById('cash').value);
+        let diskon = c / 100 * cash;
+        let total = a * b - diskon;
+        let kembali = cash - total;
+        document.getElementById('total').value = total;
+        document.getElementById('kembali').value = kembali;
+        document.getElementById('jng').textContent = ' Nama Barang : ' + name;
+        ">
+        Hitung
+    </button>
+
+    <br><br>
+    <p id="jng">Nama Barang :</p>
+
+    <label>Total Bayar:</label>
+    <input type="number" id="total" readonly>
+    <br><br>
+
+    <label>Kembali:</label>
+    <input type="number" id="kembali" readonly>
+
+    </form>
+</html>

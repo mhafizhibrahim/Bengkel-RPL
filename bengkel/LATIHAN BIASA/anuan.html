@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .selesai {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>To-Do List</h1>
+
+    <input type="text" id="inputTugas" placeholder="Masukkan tugas">
+    <button onclick="tambahTugas()">Tambah</button>
+
+    <ul id="daftarTugas"></ul>
+
+    <script>
+        function tambahTugas() {
+            let input = document.getElementById("inputTugas");
+            let tugas = input.value;
+
+            if (tugas === "") {
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = tugas + 
+                ' <button onclick="selesai(this)">Selesai</button>' +
+                ' <button onclick="hapus(this)">Hapus</button>';
+
+            document.getElementById("daftarTugas").appendChild(li);
+
+            input.value = "";
+        }
+
+        function selesai(button) {
+            button.parentElement.classList.toggle("selesai");
+        }
+
+        function hapus(button) {
+            button.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>

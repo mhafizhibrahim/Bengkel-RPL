@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Kasir function</title>
+</head>
+<body>
+    <script>
+        let belanja = Number(prompt("Berapa Harga Total Belanja Anda?"));
+        let diskon = prompt("Apakah Anda Mempunyai Kartu Member ? (Y/N)")
+
+        function hitung(belanja, diskon) {
+            if (diskon === 'Y' || diskon === 'y') {
+                if (belanja >= 100000) {
+                    let diskon100 = 10;
+                    let hasil = belanja - ((diskon100 / 100) * belanja);
+                    return hasil
+                } else {
+                    let diskondbwh100 = 5;
+                    let hasil = belanja - ((diskondbwh100 / 100) * belanja);
+                    return hasil
+                }
+            } else {
+                return belanja
+            }
+        }
+
+        let totalbelanja = hitung(belanja, diskon);
+        document.write("Total Belanja Anda : " + totalbelanja)
+    </script>
+</body>
+</html>

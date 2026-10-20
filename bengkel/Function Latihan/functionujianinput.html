@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Rata Rata Dan Grade</title>
+</head>
+<body>
+    
+    <label>Input Nilai Tugas</label>
+    <input type="number" id="TUGAS"><br><br>
+    
+    <label>Input Nilai UTS</label>
+    <input type="number" id="UTS"><br><br>
+    
+    <label>Input Nilai UAS</label>
+    <input type="number" id="UAS"><br><br>
+    
+    <button type="button" onclick="hitungNilai()">
+        Hitung Rata Rata Dan Grade
+    </button>
+
+    
+    <button type="button" onclick="inputlagi()">Input Lagi</button>
+    
+    <h3 id="hasil"></h3>
+
+
+    <script>
+        function ratarata(tugas, uts, uas) {
+            let rataRata = (tugas + uts + uas) / 3;
+            return rataRata;
+        }
+
+        function grade(rataRata) {
+            if (rataRata == 100) {
+                return "A+"
+            } else if (rataRata >= 90) {
+                return "A"
+            } else if (rataRata >= 80) {
+                return "B"
+            } else if (rataRata >= 70) {
+                return "C"
+            } else if (rataRata >= 65) {
+                return "D"
+            } else {
+                return "F"
+            }
+           }
+
+           function hitungNilai() {
+            let tugas = Number(document.getElementById('TUGAS').value);
+            let uts = Number(document.getElementById('UTS').value);
+            let uas = Number(document.getElementById('UAS').value);
+
+            let rataRata = ratarata(tugas, uts, uas);
+            let grade1 = grade(rataRata);
+            
+            document.getElementById("hasil").innerHTML =
+            "Rata Rata Nilai : " + rataRata.toFixed(2) +
+            "<br>Grede : " + grade1;
+            
+        }
+        
+        function inputlagi() {
+                document.getElementById('TUGAS').value = "";
+                document.getElementById('UTS').value = "";
+                document.getElementById('UAS').value = "";
+            document.getElementById("hasil").innerHTML = ""
+        }
+
+    
+    </script>
+</body>
+</html>

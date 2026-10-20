@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROGRAM KASIR SIMPLE</title>
+    </head>
+    <body>
+        <h2>PROGRAM KASIR SEDERHANA</h2>
+
+        <form>
+            <label>Nama Barang:</label>
+            <input type="text" id="nama">
+            <br><br>
+
+            <label>Harga Satuan:</label>
+            <input type="number" id="hrg">
+            <br><br>
+            
+            <label>Jumlah Beli:</label>
+            <input type="number" id="jumlah">
+            <br><br>
+            
+            
+            <button type="button" onclick="
+            let name = document.getElementById('nama').value;
+            let a = Number(document.getElementById('hrg').value);
+            let b = Number(document.getElementById('jumlah').value);
+            
+            let subtotal = a * b;
+            let batas = 500000;
+            let diskonNya = 0;
+            
+            if (subtotal >= batas) {
+                diskonNya = 10;
+            } else {
+                diskonNya = 5;
+            }
+            
+            let diskon = (diskonNya / 100) * subtotal;
+            let total = subtotal - diskon;
+            
+            document.getElementById('jng').value = name;
+            document.getElementById('diskon').value = diskonNya + '%'
+            document.getElementById('total').value = total;
+            document.getElementById('totalharga').value = subtotal;
+            ">
+            Hitung Total Harga
+        </button>
+        
+        <br><br>
+        <label>Nama Barang :</label>
+        <input type="text" id="jng" readonly>
+        <br><br>
+        
+        <label>Total Harga :</label>
+        <input type="number" id="totalharga" readonly>
+        <br><br>
+        
+        <label>Diskon :</label>
+        <input type="text" id="diskon" readonly>
+        <br><br>
+
+        <label>Total Bayar :</label>
+        <input type="number" id="total" readonly>
+        <br><br>
+        
+
+        <p>Masukan Nominal Uang Anda :</p>
+        <label>Cash :</label>
+        <input type="number" id="cash">
+        <br><br>
+
+        <button type="button" onclick="
+        let cash = Number(document.getElementById('cash').value);
+        let totaln = Number(document.getElementById('total').value);
+        let kembali = cash - totaln;
+        document.getElementById('kembali').value = kembali;
+        ">
+        Hitung Kembali
+        </button>
+        <br><br>
+
+        <label>Kembali:</label>
+        <input type="number" id="kembali">
+        </form>
+    </body>
+</html>

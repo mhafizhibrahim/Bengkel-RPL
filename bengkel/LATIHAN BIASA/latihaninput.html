@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menghitung Luas Persegi Panjang</title>
+    </head>
+    <body>
+        
+        <link rel="stylesheet" href="stayle.css">
+        <h2>Menghitung Luas Persegi Panjang</h2>
+        <i>Rumusnya Adalah Panjang * Lebar</i>
+
+        <form>
+            <label>Panjang:</label>
+            <input type="number" id="panjang">
+            <br><br>
+
+            <label>Lebar:</label>
+            <input type="number" id="lebar">
+            <br><br>
+            
+            <button type="button" onclick="
+            let a = Number(document.getElementById('panjang').value);
+            let b = Number(document.getElementById('lebar').value);
+            let hasil = a * b;
+            document.getElementById('hasil').value = hasil;
+            ">
+            Hitung
+        </button>
+
+        <br><br>
+
+        <label>Hasil:</label>
+        <input type="number" id="hasil" readonly>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PERCABANGAN</title>
+    </head>
+    <body>
+        <script>
+            var usia = prompt("Masukan Usia Anda:");
+            var kategori = "";
+            var valid = "";
+
+            if (isNaN(usia)) {
+                valid = alert("Masukan Usia yang valid.")
+            } else if (usia >= 60) {
+                kategori = "Lanjut Usia"
+            } else if (usia >= 18) {
+                kategori = "Dewasa"
+            } else if (usia >= 13) {
+                kategori = "Remaja"
+            } else if (usia >= 6) {
+                kategori = "Anak - Anak"
+            } else {
+                kategori = "Balita"
+            }
+            document.write(`<h2>Kategori Usia Anda Adalah : ${kategori}</h2>`);
+        </script>
+    </body>
+</html>

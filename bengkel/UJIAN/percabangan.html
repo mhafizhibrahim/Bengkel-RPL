@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>percabangan</title>
+    <h3>Keterangan Kelulusan</h3>
+  </head>
+  <body align="center">
+    <script>
+      document.title ="percabangan dalam percabangan"
+      var nama = prompt("Siapa nama kamu :");
+      var tulis = prompt("Masukan Nilai Tulis mu :");
+
+      document.write(`Selamat datang: ${nama} <br>`);
+      if (tulis >= 80) {
+        var wawancara = prompt("Masukan Nilai Wawancara Kamu :");
+        if (wawancara >= 75) {
+          document.write(`Keterangan : Selamat ${nama} kamu dinyatakan Lulus!`);
+        } else {
+          document.write(
+            `Keterangan : ${nama} dinyatakan tidak Lulus, Karena Nilai wawancara kamu Kurang. Belajar Lagi ya!`,
+          );
+        }
+      } else {
+        document.write(
+          `Keterangan : ${nama} dinyatakan Tidak Lulus, Karena Nilai Tulis mu Kurang, Belajarlah yang lebih Giat!`,
+        );
+      }
+    </script>
+  </body>
+</html>

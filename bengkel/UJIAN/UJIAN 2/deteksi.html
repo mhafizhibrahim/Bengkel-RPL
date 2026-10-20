@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deteksi Ada Berapa Bilangan Ganjil / Genap</title>
+    </head>
+    <body>
+        <script>
+            let bil = [80, 70, 95, 65, 100, 96];
+            let genap = 0;
+            let ganjil = 0;
+
+            for(let i = 0; i < bil.length; i++){
+                document.write(bil[i] + " ")
+                if (bil[i] %2 == 0){
+                    genap++
+                } else {
+                    ganjil++
+                }}
+                document.write('<br>')
+                document.write('Bilangan Genap : ' + genap + '<br>')
+                document.write('Bilangan Ganjil : ' + ganjil + '<br>')
+            
+        </script>
+    </body>
+</html>

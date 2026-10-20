@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir Simple Menggunakan Function</title>
+</head>
+<body>
+    <h2>Program Kasir Sederhana Menggunakan Function</h2>
+
+    <label>Nama Barang:</label>
+            <input type="text" id="nama">
+            <br><br>
+
+            <label>Harga Satuan:</label>
+            <input type="number" id="hrg">
+            <br><br>
+            
+            <label>Jumlah Beli:</label>
+            <input type="number" id="jumlah">
+            <br><br>
+
+            <label>Masukan Cash:</label>
+            <input type="number" id="cash">
+            <br><br>
+
+            <button type="button" onclick="hitung()">Hitung Total Harga</button>
+            <button type="button" onclick="inputlagi()">Input Ulang</button>
+
+            <h3 id="yoalah"></h3>
+
+            <script>
+                function hargatotal(hrg, jumlah) {
+                    let total = hrg * jumlah;
+                    return total;
+                }
+
+                function diskon(total) {
+                    if (total >= 1000000) {
+                        let diskon0 = 10;
+                        alert("Selamat Anda Mendapat Diskon 10%");
+                        let hasil = total - ((diskon0 / 100) * total);
+                        return hasil
+                    } else if (total >= 500000) {
+                        let diskon1 = 5;
+                        alert("Selamat Anda Mendapat Diskon 5%");
+                        let hasil = total - ((diskon1 / 100) * total);
+                        return hasil
+                    } else {
+                        alert("Maaf Anda Tidak Mendapatkan Diskon...")
+                        return total
+                }
+            }
+
+            function anu(total, hrg, jumlah) {
+                if(total >= 1000000) {
+                    let totalnyah = total - ((10 / 100) * total);
+                    return totalnyah;
+                } else if(total >= 500000) {
+                    let totalnyah1 = total - ((5 / 100) * total);
+                    return totalnyah1;
+                } else {
+                    return total
+                }
+            }
+
+
+            function kemb(cash, anu){
+                let kem =  cash - anu
+                return kem;
+                
+            }
+            
+            function hitung() {
+                let nama = document.getElementById('nama').value;
+                let cash = document.getElementById('cash').value;
+                let hrg = document.getElementById('hrg').value;
+                let jumlah = document.getElementById('jumlah').value;
+                
+                let hasilnya = hargatotal(hrg, jumlah);
+                let diskony = diskon(hasilnya);
+                let kembalian = anu(hasilnya, hrg, jumlah);
+                let kembaliyan = kemb(cash, kembalian)
+
+                    document.getElementById("yoalah").innerHTML = 
+                    "Nama Barang : " + nama +
+                    "<br>Total Harga : " + hasilnya +  
+                    "<br> Uang Anda : " + cash +
+                    "<br> Total Bayar : " + diskony +
+                    "<br> Kembalian : " + kembaliyan;
+
+                }
+
+                function inputlagi() {
+                document.getElementById('nama').value = "";
+                document.getElementById('cash').value = "";
+                document.getElementById('hrg').value = "";
+                document.getElementById('jumlah').value = "";
+                document.getElementById("yoalah").innerHTML = "";
+                }
+
+            </script>
+</body>
+</html>

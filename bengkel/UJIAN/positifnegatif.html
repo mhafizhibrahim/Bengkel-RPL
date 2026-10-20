@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Positif Or Negatif</title>
+</head>
+<body>
+    
+    <form>
+        <label>Masukan angka :</label>
+        <input type="number" id="bilangan">
+        <br><br>
+
+        <button type="button" onclick="
+        let bil = Number(document.getElementById('bilangan').value);
+        
+        if (bil <0) {
+            alert('Negatif');
+        } else {
+            alert('Positif');
+        }
+        ">
+        Identifikasi
+    </button>
+    </form>
+</body>
+</html>

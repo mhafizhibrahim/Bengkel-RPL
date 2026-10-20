@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MENGUBAH CELCIUS KE FARENHEIT</title>
+    </head>
+    <body>
+        
+            <h2>MENGUBAH CELCIUS KE FARENHEIT</h2>
+    
+    <form>
+        <label>Celcius:</label>
+        <input type="number" id="celcius">
+        <br><br>
+
+        <button type="button" onclick="
+        let a = Number(document.getElementById('celcius').value);
+        let hasil = a * 1.8 + 32;
+        document.getElementById('hasil').value = hasil;
+        document.getElementById('oto').textContent = 'Rumus = ' + a + ' * 1.8 + 32 = '+ hasil;
+        ">
+        Hitung
+    </button>
+
+    <br><br>
+
+    <label>Farenheit:</label>
+    <input type="number" id="hasil" readonly>
+
+    <p id="oto">Rumus =</p>
+
+    <body>
+        <style>
+            p {
+                font-family: fantasy;
+                font-size: 23px;
+                border-style: solid;
+            }
+        </style>
+    </body>
+    </body>
+    </form>
+</html>

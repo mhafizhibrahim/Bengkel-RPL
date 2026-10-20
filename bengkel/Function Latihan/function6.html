@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buah</title>
+</head>
+<body>
+    <input type="text" id="buah" placeholder="Masukan nama buah">
+
+    <button onclick="tambahBuah()">Tambah</button>
+    <button onclick="tampilkanBuah()">Tampilkan</button>
+
+    <p id="hasil"></p>
+    
+    <script>
+        // Array
+        let daftarBuah = [];
+
+        //fungsi menambahkan buah
+        function tambahBuah() {
+            let buah = document.getElementById('buah').value;
+
+            daftarBuah.push(buah);
+
+            document.getElementById('buah').value = "";
+
+            alert("Buah berhasil ditambahkan");
+        }
+
+        //function menampilkan buah
+        function tampilkanBuah() {
+
+            let hasil = "";
+
+            for (let i = 0; i < daftarBuah.length; i++) {
+                hasil += (i + 1) + ". " + daftarBuah[i] + "<br>";
+            }
+            document.getElementById('hasil').innerHTML = hasil;
+        }
+    </script>
+</body>
+</html>

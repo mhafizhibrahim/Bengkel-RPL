@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var jawab = prompt("Silahkan Pilih Rumus mana yang kamu mau ketahui dengan Memilih angka dari 1 - 3.");
+        var hasil = "";
+
+        switch(jawab){
+            case "1":
+                  //Persegi Panjang
+            var p = 12;
+            var lb = 5;
+
+             hasil = p * lb;
+            document.write(`Panjang = ${p}<br/>`);
+            document.write(`Lebar = ${lb}<br/>`);
+            document.write(`Luas = Panjang * Lebar<br/>`);
+            document.write(`Luas = ${p} * ${lb} = ${hasil}cm<br/>`);
+            document.write(`<br/>`);
+            hasil = 2 * (p + lb)
+            document.write(`Panjang = ${p}<br/>`);
+            document.write(`Lebar = ${lb}<br/>`);
+            document.write(`Keliling = 2 * (${p} + ${lb}) = ${hasil}cm<br/>`);
+                break;
+            case "2":
+                
+                break;
+            case "3":
+                hasil = "Rumus luas segitiga Yaitu 1/2 x Alas x Tinggi";
+                break;
+            default:
+                alert("Maaf, Pilihan anda tidak tersedia.")
+        }
+        
+        if(hasil === ""){
+            document.write("<p>Kamu Tidak Mendapatkan Hadiah</p>");
+        } else {
+            document.write("<h2>" + hasil + "</h2>");
+        }
+    </script>
+</body>
+</html>
